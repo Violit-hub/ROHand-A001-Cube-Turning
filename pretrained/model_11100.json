@@ -1,0 +1,24 @@
+{
+  "file": "model_11100.pt",
+  "sha256": "c0b6a5b6a601ef251904189f66bdf4b183e9eb06e5a05405868cfcb1034f0963",
+  "bytes": 9342027,
+  "iteration": 11100,
+  "task": "WujiHand2_Reorient_50Hz",
+  "robot": "ROH-A001 right",
+  "algorithm": "PPO",
+  "actor_observation_dimension": 81,
+  "critic_observation_dimension": 275,
+  "action_dimension": 6,
+  "num_training_environments": 12228,
+  "control_hz": 50,
+  "physics_timestep_s": 0.005,
+  "stagnation_weight_per_second": -10.0,
+  "isolation_enabled": true,
+  "status": "intermediate_training_snapshot_not_a_convergence_claim",
+  "normalization_note": "Preserved exactly as trained. The critic inherits extreme historical normalization variance; max std is approximately 2.97e14. Replay is supported; resumed training inherits these statistics.",
+  "training_state": {
+    "max_common_steps": 500000,
+    "_adaptive_episode_curriculum": 1.0,
+    "_reorient_success_curriculum": 0.0
+  }
+}

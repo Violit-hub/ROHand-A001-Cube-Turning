@@ -1,0 +1,22 @@
+serial_numbers:
+  right: ""   # e.g. WHxxxxxxxxxxxxx; empty → auto-connect the single hand on the bus
+
+control:
+  # Scales training-time per-joint kp; kd scales by sqrt(pd_scale) to keep
+  # the training-time damping ratio. CLI gain/scale flags override this.
+  pd_scale: 2.0
+  effort_limit_a: 1.0
+  # servo_hz only sets the interpolated streaming rate; the policy still decides at ctrl_dt.
+  servo_hz: 200.0
+
+# ZMQ ports (must match across the 3 processes).
+zmq:
+  cube_port: 5555
+  goal_port: 5556
+  joint_port: 5557
+
+goal:
+  success_threshold_rad: 0.4
+  hold_s: 1
+  timeout_s: 15.0
+  rest_s: 3.0

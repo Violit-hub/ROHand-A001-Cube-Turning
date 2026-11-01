@@ -1,0 +1,81 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wuji-mjlab"
+version = "0.1.0"
+description = "Reinforcement learning and sim-to-real deployment for the Wuji Hand dexterous manipulation platform, built on mjlab and MuJoCo Warp."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+authors = [
+    { name = "Wuji Technology Co., Ltd.", email = "support@wuji.tech" }
+]
+keywords = ["reinforcement-learning", "robotics", "dexterous-manipulation", "mujoco", "sim-to-real", "wujihand"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Robotics",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/wuji-technology/wuji-mjlab"
+Repository = "https://github.com/wuji-technology/wuji-mjlab"
+Issues = "https://github.com/wuji-technology/wuji-mjlab/issues"
+Changelog = "https://github.com/wuji-technology/wuji-mjlab/blob/main/CHANGELOG.md"
+Documentation = "https://github.com/wuji-technology/wuji-mjlab/tree/main/docs"
+
+[project.entry-points."mjlab.tasks"]
+wuji_mjlab = "wuji_mjlab.tasks"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+wuji_mjlab = [
+  "assets/README.md",
+  "assets/objects/inhand_object/xmls/*.xml",
+  "assets/objects/inhand_object/meshes/*.obj",
+  "assets/objects/inhand_object/textures/*.png",
+  "assets/robots/wuji_hand2/meshes/right/*.STL",
+  "assets/robots/rohand_a001/*.xml",
+  "assets/robots/rohand_a001/*.npz",
+  "assets/robots/rohand_a001/*.json",
+  "assets/robots/rohand_a001/*.md",
+  "assets/robots/rohand_a001/meshes/*.STL",
+  "assets/objects/aruco_pen250/textures/*.png",
+  "assets/objects/aruco_pen250/xmls/*.xml",
+]
+
+[tool.pytest.ini_options]
+# The training environment intentionally excludes deploy distributions; cross-side tests import their sources.
+pythonpath = ["deploy/reorient"]
+markers = [
+    "slow: marks tests as slow / pollutes mujoco_warp global state (deselect with -m 'not slow')",
+]
+
+[tool.ruff]
+indent-width = 2
+src = ["src/wuji_mjlab"]
+extend-exclude = ["src/wuji_mjlab/assets/robots/wuji-description"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B"]
+# B008 is ignored because mjlab task functions use SceneEntityCfg defaults by convention.
+ignore = ["B008"]
+
+[tool.pyright]
+pythonVersion = "3.11"
+ignore = ["./typings"]
+# Keep pyright local: mjlab wheel stubs conflict with mujoco-warp stubs in the pixi environment.

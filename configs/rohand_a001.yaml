@@ -1,0 +1,12 @@
+task: WujiHand2_Reorient_50Hz
+env:
+  scene:
+    num_envs: 12228
+agent:
+  max_iterations: 5000
+  run_name: A001_stall10_isolated
+args:
+  - --agent.logger
+  - tensorboard
+  - --agent.upload-model
+  - "False"

@@ -1,0 +1,69 @@
+{
+  "configured_device": "ROH-A001 right",
+  "vendor_package": "ROH-A001&A002 (manufacturer shared MuJoCo model)",
+  "source": "manufacturer package A001&A002/model/rohand_right.xml (copy retained as vendor_original.xml)",
+  "source_sha256": "3212c18dd1f2f65c99df73a1c603407a0a4a094e28cdcfdc3dcc6c954e49ce1e",
+  "native_to_task_rotation": [
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    [
+      -1.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "control_order": [
+    "th_root_link",
+    "th_slider_connecting_link",
+    "if_proximal_link",
+    "mf_proximal_link",
+    "rf_proximal_link",
+    "lf_proximal_link"
+  ],
+  "control_max_rad": [
+    1.57,
+    1.0,
+    1.44,
+    1.44,
+    1.44,
+    1.44
+  ],
+  "tip_sites_local": {
+    "th": [
+      0.009243398251848362,
+      -0.024810079233746556,
+      0.0073821524442904745
+    ],
+    "if": [
+      -0.007341523189097643,
+      0.011699359773135767,
+      0.04823582522510513
+    ],
+    "mf": [
+      -0.007244405915915239,
+      0.04233434263283644,
+      0.025925363633569662
+    ],
+    "rf": [
+      -0.007338697393614102,
+      -0.04295175092491677,
+      -0.02484814378970522
+    ],
+    "lf": [
+      -0.007642949342512148,
+      -0.014805192743574292,
+      -0.03167480441225954
+    ]
+  },
+  "lookup_samples_per_linkage": 513,
+  "lookup_max_closure_residual_m": 5.116174423786447e-05,
+  "preserved": "native joint axes, references, masses, inertias, gravcomp, gains, collision exclusions, six connect equalities"
+}

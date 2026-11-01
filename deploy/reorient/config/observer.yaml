@@ -1,0 +1,16 @@
+# Note: ZMQ port is configured in control.yaml (zmq.cube_port)
+
+rotation_filter:
+  process_noise: 0.5
+  measurement_noise: 0.1
+
+position_filter:
+  alpha: 0.8
+
+pnp:
+  reproj_threshold: 6.0     # px
+
+preprocess:
+  enable_clahe: true
+  clahe_clip: 2.0
+  clahe_tile: [8, 8]
